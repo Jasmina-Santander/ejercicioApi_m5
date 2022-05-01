@@ -1,0 +1,20 @@
+@mixin flex-jc($justify) {
+    display: flex;
+    justify-content: $justify;
+    align-items: center;
+}
+
+@mixin myButton { 
+    color: $color-light;    
+    background-color: $color-primary;
+    text-decoration: none;
+    border-radius: 10px;   
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+   
+        &:hover {
+            color: white;
+            text-shadow: 1px 1px black;
+            background-color: $color-primary;
+        }    
+}

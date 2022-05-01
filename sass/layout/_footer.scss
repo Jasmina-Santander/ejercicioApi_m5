@@ -1,0 +1,13 @@
+.footer{
+    background-color: $color-dark;
+    color: $color-light;
+    font-weight: bold;
+    @extend %section-master;
+    
+    text-align: center;
+    @include flex-jc(space-between);
+    &__img{
+        width: 30px;
+        margin: 10px;
+    }
+}

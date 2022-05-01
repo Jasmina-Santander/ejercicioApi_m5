@@ -1,0 +1,23 @@
+/*.btn{
+    background-color: $color-primary;
+    padding: 5px 15px;
+    border-radius: 5px;
+    color: $color-light;
+    margin-top: 10px;
+}*/
+.btn-2{
+    @include myButton;
+}
+.btn-flotante1 {
+	position: fixed;
+	bottom: 40px;
+	right: 200px;
+    margin-bottom: 30px;
+	z-index: 99;
+}
+.btn-flotante2 {
+	position: fixed;
+	bottom: 40px;
+	right: 40px;
+	z-index: 99;
+}

@@ -1,0 +1,7 @@
+.form{
+    &__item{
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}

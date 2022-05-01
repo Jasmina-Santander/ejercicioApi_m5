@@ -1,0 +1,27 @@
+.main{
+    &__section-primary{
+        background-color: $color-secundary;
+        color: $color-light;
+        @extend %section-master;
+
+    }
+    &__subtitle{
+        padding-bottom: 20px;
+        color: $color-light;
+        font-family: $font-title;
+    }
+    &__section-secundary{
+        
+        @extend %section-master;
+    }
+    &__container{
+        @include flex-jc(space-evenly);
+        flex-wrap: wrap;
+    }
+    &__list{
+        list-style-position: inside
+    }
+}
+
+
+

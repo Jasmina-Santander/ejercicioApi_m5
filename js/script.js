@@ -1,5 +1,4 @@
 const contenido = document.querySelector("#contenido"); // para imprimir las tarjetas
-const contenidoModal = document.querySelector("#contenidoModal"); // para imprimir el modal de cada elemento
 const favoritoContenido = document.querySelector("#favoritos"); // para imprimir los favoritos
 const verFavoritos = document.getElementById("btn-favoritos"); // para ocultar o mostrar Boton Ver favoritos
 const quitarTodos = document.getElementById("btn-quitar"); // para ocultar o mostrar Boton Quitar todos
@@ -9,19 +8,17 @@ quitarTodos.style.display = "none"; // para ocultar o mostrar Boton Quitar todos
 
 //Traer elementos
 async function traer() {
-  try {
-    const respuesta = await fetch("https://jsonplaceholder.typicode.com/posts");
-    const data = await respuesta.json();
-    tabla(data);
-    arreglo = data;
-  } catch (error) {
-    console.log(error);
-  }
+    try {
+            const respuesta = await fetch("https://jsonplaceholder.typicode.com/posts");
+            const data = await respuesta.json();
+            tabla(data);
+            arreglo = data;
+    } catch (error) { console.log(error); }
 }
 
 const tabla = (data) => { 
     contenido.innerHTML = "";
-    data.forEach((elemento) => {
+    data.forEach(elemento => {
     if (elemento.id <= 20)
         contenido.innerHTML += 
             `<div class="col-12 col-sm-6 col-md-12 p-3">
@@ -38,12 +35,10 @@ const tabla = (data) => {
     });
 };
 
-const promise = new Promise((resolve) =>
-  setTimeout(() => resolve("Información enviada"), 3000)
-);
+const promise = new Promise(resolve => setTimeout(() => resolve("Información enviada"), 3000));
 const mensajePromesa = async () => {
-  const result = await promise;
-  console.log(result);
+    const result = await promise;
+    console.log(result);
 };
 mensajePromesa();
 
@@ -54,7 +49,7 @@ const buscarProducto = document.getElementById("buscar");
 const buscar = () => {
     buscarProducto.value = buscarProducto.value.replace(/[0-9]/g, "");
     contenido.innerHTML = "";
-    let filtrarProductos = arreglo.filter((producto) => producto.title.toLowerCase().includes(buscarProducto.value.toLowerCase()));
+    let filtrarProductos = arreglo.filter(producto => producto.title.toLowerCase().includes(buscarProducto.value.toLowerCase()));
     if (filtrarProductos.length != 0) { filtrarProductos.map(elemento => contenido.innerHTML += 
         `<div class="col-12 col-sm-6 col-md-12 p-3">
               <div class="card text-white bg-dark mb-3">
@@ -81,11 +76,11 @@ let favorito = [];
 const favoritos = (param, id) => {
     favoritoContenido.innerHTML = "";
     if (param === "+") {
-        let agregar = arreglo.find((elemento) => elemento.id === id);
-        if (favorito.find((elemento) => elemento.id === id)) {} 
+        let agregar = arreglo.find(elemento => elemento.id === id);
+        if (favorito.find(elemento => elemento.id === id)) {} 
         else favorito.push(agregar);
     } else if (param === "-") {
-        let quitar = favorito.findIndex((elemento) => elemento.id === id);
+        let quitar = favorito.findIndex(elemento => elemento.id === id);
         favorito.splice(quitar, 1);
     } else favorito = [];
 
